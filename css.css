@@ -1,0 +1,529 @@
+:root {
+	--clocksize: 5.625;
+	--unit: 1vmax;
+}
+@media (max-aspect-ratio: 1/1) {
+	:root {
+		--clocksize: 6.5;
+		--unit: 1vmax;
+	}
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+}
+main {
+	display: flex;
+	margin: auto;
+	flex-wrap: wrap;
+}
+@media (max-aspect-ratio: 1/1) {
+	main{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+section {
+	display: grid;
+	grid-template-columns: repeat(4, calc(var(--clocksize) * var(--unit)));
+}
+
+h1,
+h2,
+p,
+[aria-live] {
+	position: absolute;
+	left: -11111em;
+}
+div {
+	box-sizing: border-box;
+	border: 1px solid black;
+	width: 100%;
+	height: calc(var(--clocksize) * var(--unit));
+	border-radius: 100%;
+	position: relative;
+}
+
+
+div::before,
+div::after {
+	content: '';
+	width: 5px;
+	height: calc(var(--clocksize) * var(--unit) / 2);
+	background: black;
+	display: block;
+	left: calc(50% - 2px);
+	position: absolute;
+	bottom: 50%;
+	transform-origin: 50% 100%;
+	transition: 10s;
+}
+.leet div::before,
+.leet div::after {
+	background: red;
+}
+div::before{
+	transform: rotate(0deg);
+}
+div::after {
+	transform: rotate(.5turn);
+	transition: 13s ease-out;
+}
+section:nth-of-type(1) div::before {
+	transition: 13s;
+}
+section:nth-of-type(1) div::after {
+	transition: 16s ease-out;
+}
+section:nth-of-type(2) div::before {
+	transition: 12s;
+}
+section:nth-of-type(2) div::after {
+	transition: 15s ease-out;
+}
+section:nth-of-type(3) div::before {
+	transition: 11s;
+}
+section:nth-of-type(3) div::after {
+	transition: 14s ease-out;
+}
+
+/* ONE */
+.one div:nth-of-type(4n)::before,
+.one div:nth-of-type(4n)::after,
+.one div:nth-of-type(4n + 9)::before,
+.one div:nth-of-type(4n + 9)::after {
+	transform: rotate(225deg);
+}
+.one div:nth-of-type(5)::before,
+.one div:nth-of-type(21)::after,
+.one div:nth-of-type(24)::before {
+	transform: rotate(0deg);
+}
+.one div:nth-of-type(17)::after,
+.one div:nth-of-type(20)::after {
+	transform: rotate(.5turn);
+}
+.one div:first-of-type::before,
+.one div:nth-of-type(2)::before,
+.one div:nth-of-type(5)::after,
+.one div:nth-of-type(17)::before,
+.one div:nth-of-type(19)::after,
+.one div:nth-of-type(21)::before,
+.one div:nth-of-type(22)::before,
+.one div:nth-of-type(23)::before {
+	transform: rotate(.25turn);
+}
+.one div:nth-of-type(2)::after,
+.one div:nth-of-type(3)::before,
+.one div:nth-of-type(6)::before,
+.one div:nth-of-type(18)::after,
+.one div:nth-of-type(20)::before,
+.one div:nth-of-type(22)::after,
+.one div:nth-of-type(23)::after,
+.one div:nth-of-type(24)::after {
+	transform: rotate(-.25turn);
+}
+
+/* TWO */
+
+.two div:nth-of-type(5)::before,
+.two div:nth-of-type(21)::after,
+.two div:nth-of-type(24)::before,
+.two div:nth-of-type(17)::before {
+	transform: rotate(0deg);
+}
+.two div:nth-of-type(17)::after,
+.two div:nth-of-type(20)::after,
+.two div:nth-of-type(14)::after {
+	transform: rotate(1.5turn);
+}
+.two div:first-of-type::before,
+.two div:nth-of-type(2)::before,
+.two div:nth-of-type(3)::after,
+.two div:nth-of-type(5)::after,
+.two div:nth-of-type(6)::after,
+.two div:nth-of-type(9)::before,
+.two div:nth-of-type(10)::after,
+.two div:nth-of-type(14)::before,
+.two div:nth-of-type(15)::before,
+.two div:nth-of-type(18)::after,
+.two div:nth-of-type(19)::after,
+.two div:nth-of-type(21)::before,
+.two div:nth-of-type(22)::before,
+.two div:nth-of-type(23)::before {
+	transform: rotate(-.75turn);
+}
+.two div:nth-of-type(2)::after,
+.two div:nth-of-type(3)::before,
+.two div:nth-of-type(4)::before,
+.two div:nth-of-type(6)::before,
+.two div:nth-of-type(7)::before,
+.two div:nth-of-type(11)::after,
+.two div:nth-of-type(10)::before,
+.two div:nth-of-type(15)::after,
+.two div:nth-of-type(16)::after,
+.two div:nth-of-type(19)::before,
+.two div:nth-of-type(20)::before,
+.two div:nth-of-type(22)::after,
+.two div:nth-of-type(23)::after,
+.two div:nth-of-type(24)::after {
+	transform: rotate(.75turn);
+}
+
+/* THREE */
+
+.three div:nth-of-type(12)::after,
+.three div:nth-of-type(9)::before,
+.three div:nth-of-type(9)::after,
+.three div:nth-of-type(13)::before,
+.three div:nth-of-type(13)::after {
+	transform: rotate(225deg);
+}
+.three div:nth-of-type(16)::before {
+	transform: rotate(315deg);
+}
+
+.three div:nth-of-type(5)::before,
+.three div:nth-of-type(14)::after,
+.three div:nth-of-type(19)::after,
+.three div:nth-of-type(20)::before,
+.three div:nth-of-type(21)::after,
+.three div:nth-of-type(24)::before {
+	transform: rotate(360deg);
+}
+.three div:nth-of-type(10)::before,
+.three div:nth-of-type(16)::after,
+.three div:nth-of-type(17)::after,
+.three div:nth-of-type(20)::after,
+.three div:nth-of-type(15)::before {
+	transform: rotate(.5turn);
+}
+.three div:first-of-type::before,
+.three div:nth-of-type(2)::before,
+.three div:nth-of-type(3)::after,
+.three div:nth-of-type(5)::after,
+.three div:nth-of-type(6)::after,
+.three div:nth-of-type(10)::after,
+.three div:nth-of-type(14)::before,
+.three div:nth-of-type(17)::before,
+.three div:nth-of-type(18)::after,
+.three div:nth-of-type(21)::before,
+.three div:nth-of-type(22)::before,
+.three div:nth-of-type(23)::before {
+	transform: rotate(.25turn);
+}
+.three div:nth-of-type(2)::after,
+.three div:nth-of-type(3)::before,
+.three div:nth-of-type(4)::before,
+.three div:nth-of-type(6)::before,
+.three div:nth-of-type(7)::before,
+.three div:nth-of-type(11)::after,
+.three div:nth-of-type(15)::after,
+.three div:nth-of-type(18)::before,
+.three div:nth-of-type(19)::before,
+.three div:nth-of-type(22)::after,
+.three div:nth-of-type(23)::after,
+.three div:nth-of-type(24)::after {
+	transform: rotate(-.25turn);
+}
+
+/* FOUR STYLISTIC SET 1 */
+
+.four div:first-of-type::after,
+.four div:first-of-type::before,
+.four div:nth-of-type(2)::before,
+.four div:nth-of-type(2)::after,
+.four div:nth-of-type(5)::after,
+.four div:nth-of-type(5)::before,
+.four div:nth-of-type(8)::after,
+.four div:nth-of-type(8)::before,
+.four div:nth-of-type(21)::after,
+.four div:nth-of-type(21)::before,
+.four div:nth-of-type(22)::after,
+.four div:nth-of-type(22)::before {
+	transform: rotate(-45deg);
+}
+.four div:nth-of-type(3)::after,
+.four div:nth-of-type(4)::before,
+.four div:nth-of-type(6)::before,
+.four div:nth-of-type(7)::after {
+	transform: rotate(225deg);
+}
+.four div:nth-of-type(6)::after,
+.four div:nth-of-type(7)::before,
+.four div:nth-of-type(9)::after,
+.four div:nth-of-type(10)::before {
+	transform: rotate(45deg);
+}
+
+.four div:nth-of-type(14)::after {
+	transform: rotate(360deg);
+}
+.four div:nth-of-type(9)::before {
+	transform: rotate(.5turn);
+}
+.four div:nth-of-type(3)::before,
+.four div:nth-of-type(11)::before,
+.four div:nth-of-type(14)::before,
+.four div:nth-of-type(17)::after,
+.four div:nth-of-type(18)::after,
+.four div:nth-of-type(23)::after  {
+	transform: rotate(.25turn);
+}
+.four div:nth-of-type(4)::after,
+.four div:nth-of-type(12)::before,
+.four div:nth-of-type(15)::after,
+.four div:nth-of-type(18)::before,
+.four div:nth-of-type(19)::before,
+.four div:nth-of-type(24)::after  {
+	transform: rotate(-.25turn);
+}
+
+/* FIVE */
+
+.five div:nth-of-type(1)::before,
+.five div:nth-of-type(2)::after,
+.five div:nth-of-type(3)::before,
+.five div:nth-of-type(6)::before,
+.five div:nth-of-type(7)::after,
+.five div:nth-of-type(10)::after,
+.five div:nth-of-type(11)::before,
+.five div:nth-of-type(13)::after,
+.five div:nth-of-type(14)::after,
+.five div:nth-of-type(17)::before,
+.five div:nth-of-type(18)::after,
+.five div:nth-of-type(21)::after,
+.five div:nth-of-type(22)::before,
+.five div:nth-of-type(23)::after {
+	transform: rotate(-.75turn);
+}
+.five div:nth-of-type(2)::before,
+.five div:nth-of-type(3)::after,
+.five div:nth-of-type(4)::before,
+.five div:nth-of-type(7)::before,
+.five div:nth-of-type(8)::after,
+.five div:nth-of-type(11)::after,
+.five div:nth-of-type(12)::before,
+.five div:nth-of-type(14)::before,
+.five div:nth-of-type(15)::before,
+.five div:nth-of-type(18)::before,
+.five div:nth-of-type(19)::after,
+.five div:nth-of-type(22)::after,
+.five div:nth-of-type(23)::before,
+.five div:nth-of-type(24)::after {
+	transform: rotate(.75turn);
+}
+
+/* SIX */
+.six div::before{
+	transform: rotate(360deg);
+}
+.six div::after {
+	transform: rotate(-.5turn);
+}
+
+.six div:nth-of-type(1)::before,
+.six div:nth-of-type(2)::after,
+.six div:nth-of-type(3)::before,
+.six div:nth-of-type(6)::before,
+.six div:nth-of-type(7)::after,
+.six div:nth-of-type(10)::after,
+.six div:nth-of-type(11)::before,
+.six div:nth-of-type(14)::before,
+.six div:nth-of-type(18)::after,
+.six div:nth-of-type(21)::after,
+.six div:nth-of-type(22)::before,
+.six div:nth-of-type(23)::after {
+	transform: rotate(.25turn);
+}
+.six div:nth-of-type(2)::before,
+.six div:nth-of-type(3)::after,
+.six div:nth-of-type(4)::before,
+.six div:nth-of-type(7)::before,
+.six div:nth-of-type(8)::after,
+.six div:nth-of-type(11)::after,
+.six div:nth-of-type(12)::before,
+.six div:nth-of-type(15)::before,
+.six div:nth-of-type(19)::after,
+.six div:nth-of-type(22)::after,
+.six div:nth-of-type(23)::before,
+.six div:nth-of-type(24)::after {
+	transform: rotate(-.25turn);
+}
+
+/* SEVEN */
+
+.seven div:nth-of-type(9)::before,
+.seven div:nth-of-type(9)::after,
+.seven div:nth-of-type(10)::before,
+.seven div:nth-of-type(10)::after,
+.seven div:nth-of-type(4n + 13)::before,
+.seven div:nth-of-type(4n + 13)::after,
+.seven div:nth-of-type(4n + 16)::before,
+.seven div:nth-of-type(4n + 16)::after {
+	transform: rotate(-45deg);
+}
+.seven div:nth-of-type(11)::after,
+.seven div:nth-of-type(12)::after {
+	transform: rotate(225deg);
+}
+.seven div:nth-of-type(6)::after,
+.seven div:nth-of-type(14)::after,
+.seven div:nth-of-type(15)::before {
+	transform: rotate(45deg);
+}
+
+ {
+	transform: rotate(360deg);
+}
+.seven div:first-of-type::before,
+.seven div:nth-of-type(14)::before {
+	transform: rotate(.5turn);
+}
+.seven div:first-of-type::after,
+.seven div:nth-of-type(2)::before,
+.seven div:nth-of-type(3)::after,
+.seven div:nth-of-type(5)::after,
+.seven div:nth-of-type(6)::before,
+.seven div:nth-of-type(22)::after {
+	transform: rotate(.25turn);
+}
+.seven div:nth-of-type(2)::after,
+.seven div:nth-of-type(3)::before,
+.seven div:nth-of-type(4)::before,
+.seven div:nth-of-type(6)::after,
+.seven div:nth-of-type(7)::before,
+.seven div:nth-of-type(23)::after {
+	transform: rotate(-.25turn);
+}
+
+/* EIGHT */
+
+.eight div:nth-of-type(12)::after,
+.eight div:nth-of-type(9)::before,
+.eight div:nth-of-type(9)::after {
+	transform: rotate(225deg);
+}
+.eight div:nth-of-type(16)::before {
+	transform: rotate(315deg);
+}
+.eight div:nth-of-type(9)::before {
+	transform: rotate(135deg);
+}
+.eight div:nth-of-type(13)::after {
+	transform: rotate(45deg);
+}
+
+.eight div:nth-of-type(5)::before,
+.eight div:nth-of-type(9)::after,
+.eight div:nth-of-type(8)::before,
+.eight div:nth-of-type(10)::before,
+.eight div:nth-of-type(12)::before,
+.eight div:nth-of-type(19)::after,
+.eight div:nth-of-type(20)::before,
+.eight div:nth-of-type(21)::after,
+.eight div:nth-of-type(24)::before {
+	transform: rotate(360deg);
+}
+
+.eight div:nth-of-type(6)::before,
+.eight div:nth-of-type(8)::after,
+.eight div:nth-of-type(13)::before,
+.eight div:nth-of-type(14)::after,
+.eight div:nth-of-type(16)::after,
+.eight div:nth-of-type(17)::after,
+.eight div:nth-of-type(20)::after,
+.eight div:nth-of-type(15)::before {
+	transform: rotate(-1.5turn);
+}
+.eight div:first-of-type::before,
+.eight div:nth-of-type(2)::before,
+.eight div:nth-of-type(3)::after,
+.eight div:nth-of-type(6)::after,
+.eight div:nth-of-type(10)::after,
+.eight div:nth-of-type(14)::before,
+.eight div:nth-of-type(18)::after,
+.eight div:nth-of-type(21)::before,
+.eight div:nth-of-type(22)::before,
+.eight div:nth-of-type(23)::before {
+	transform: rotate(-.75turn);
+}
+.eight div:nth-of-type(2)::after,
+.eight div:nth-of-type(3)::before,
+.eight div:nth-of-type(4)::before,
+.eight div:nth-of-type(7)::before,
+.eight div:nth-of-type(11)::after,
+.eight div:nth-of-type(15)::after,
+.eight div:nth-of-type(19)::before,
+.eight div:nth-of-type(22)::after,
+.eight div:nth-of-type(23)::after,
+.eight div:nth-of-type(24)::after {
+	transform: rotate(.75turn);
+}
+
+/* NINE */
+
+
+.nine div:nth-of-type(1)::before,
+.nine div:nth-of-type(2)::after,
+.nine div:nth-of-type(3)::before,
+.nine div:nth-of-type(6)::before,
+.nine div:nth-of-type(10)::after,
+.nine div:nth-of-type(13)::after,
+.nine div:nth-of-type(14)::before,
+.nine div:nth-of-type(17)::before,
+.nine div:nth-of-type(18)::after,
+.nine div:nth-of-type(21)::after,
+.nine div:nth-of-type(22)::before,
+.nine div:nth-of-type(23)::after {
+	transform: rotate(.25turn);
+}
+.nine div:nth-of-type(2)::before,
+.nine div:nth-of-type(3)::after,
+.nine div:nth-of-type(4)::before,
+.nine div:nth-of-type(7)::before,
+.nine div:nth-of-type(11)::after,
+.nine div:nth-of-type(14)::after,
+.nine div:nth-of-type(15)::before,
+.nine div:nth-of-type(18)::before,
+.nine div:nth-of-type(19)::after,
+.nine div:nth-of-type(22)::after,
+.nine div:nth-of-type(23)::before,
+.nine div:nth-of-type(24)::after {
+	transform: rotate(-.25turn);
+}
+
+/* ZERO */
+
+.zero div::before{
+	transform: rotate(360deg);
+}
+.zero div::after {
+	transform: rotate(-.5turn);
+}
+
+.zero div:nth-of-type(1)::before,
+.zero div:nth-of-type(2)::after,
+.zero div:nth-of-type(3)::before,
+.zero div:nth-of-type(6)::before,
+.zero div:nth-of-type(18)::after,
+.zero div:nth-of-type(21)::after,
+.zero div:nth-of-type(22)::before,
+.zero div:nth-of-type(23)::after {
+	transform: rotate(.25turn);
+}
+.zero div:nth-of-type(2)::before,
+.zero div:nth-of-type(3)::after,
+.zero div:nth-of-type(4)::before,
+.zero div:nth-of-type(7)::before,
+.zero div:nth-of-type(19)::after,
+.zero div:nth-of-type(22)::after,
+.zero div:nth-of-type(23)::before,
+.zero div:nth-of-type(24)::after {
+	transform: rotate(-.25turn);
+}
